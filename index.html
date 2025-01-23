@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload/Download and News Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: #0073e6;
+        }
+        
+        .upload-form,
+        .news-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .upload-form input,
+        .news-form input,
+        .news-form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .button {
+            padding: 10px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background-color: #005bb5;
+        }
+        
+        .news-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>File and News Portal</h1>
+    </header>
+    <main>
+        <!-- File Upload Section -->
+        <div class="section" id="file-section">
+            <h2>Upload a File</h2>
+            <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required />
+                <button type="submit" class="button">Upload File</button>
+            </form>
+            <h2>Download Files</h2>
+            <ul id="file-list">
+                <!-- Dynamically list uploaded files here -->
+            </ul>
+        </div>
+
+        <!-- News Publishing Section -->
+        <div class="section" id="news-section">
+            <h2>Publish News</h2>
+            <form class="news-form" action="/publish-news" method="post">
+                <input type="text" name="title" placeholder="News Title" required />
+                <textarea name="content" placeholder="News Content" rows="5" required></textarea>
+                <button type="submit" class="button">Publish News</button>
+            </form>
+            <h2>Latest News</h2>
+            <div id="news-list">
+                <!-- Dynamically display news articles here -->
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
